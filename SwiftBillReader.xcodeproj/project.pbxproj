@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47571B5423A63F6F00364237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5323A63F6F00364237 /* AppDelegate.swift */; };
+		47571B5623A63F6F00364237 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5523A63F6F00364237 /* SceneDelegate.swift */; };
+		47571B5823A63F6F00364237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5723A63F6F00364237 /* ViewController.swift */; };
+		47571B5B23A63F6F00364237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47571B5923A63F6F00364237 /* Main.storyboard */; };
+		47571B5D23A63F7100364237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47571B5C23A63F7100364237 /* Assets.xcassets */; };
+		47571B6023A63F7100364237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47571B5E23A63F7100364237 /* LaunchScreen.storyboard */; };
+		47571B6B23A63F7100364237 /* SwiftBillReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B6A23A63F7100364237 /* SwiftBillReaderUITests.swift */; };
+		47571B7723A63FDD00364237 /* ReceiptContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B7623A63FDD00364237 /* ReceiptContentsViewController.swift */; };
+		47571B7923A6404A00364237 /* RecognizedTextDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B7823A6404A00364237 /* RecognizedTextDataSource.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		47571B6723A63F7100364237 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 47571B4823A63F6F00364237 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47571B4F23A63F6F00364237;
+			remoteInfo = SwiftBillReader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		47571B5023A63F6F00364237 /* SwiftBillReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBillReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47571B5323A63F6F00364237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		47571B5523A63F6F00364237 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		47571B5723A63F6F00364237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		47571B5A23A63F6F00364237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		47571B5C23A63F7100364237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		47571B5F23A63F7100364237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		47571B6123A63F7100364237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47571B6623A63F7100364237 /* SwiftBillReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBillReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47571B6A23A63F7100364237 /* SwiftBillReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBillReaderUITests.swift; sourceTree = "<group>"; };
+		47571B6C23A63F7100364237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47571B7623A63FDD00364237 /* ReceiptContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiptContentsViewController.swift; sourceTree = "<group>"; };
+		47571B7823A6404A00364237 /* RecognizedTextDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecognizedTextDataSource.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47571B4D23A63F6F00364237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47571B6323A63F7100364237 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		47571B4723A63F6F00364237 = {
+			isa = PBXGroup;
+			children = (
+				47571B5223A63F6F00364237 /* SwiftBillReader */,
+				47571B6923A63F7100364237 /* SwiftBillReaderUITests */,
+				47571B5123A63F6F00364237 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47571B5123A63F6F00364237 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47571B5023A63F6F00364237 /* SwiftBillReader.app */,
+				47571B6623A63F7100364237 /* SwiftBillReaderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47571B5223A63F6F00364237 /* SwiftBillReader */ = {
+			isa = PBXGroup;
+			children = (
+				47571B7823A6404A00364237 /* RecognizedTextDataSource.swift */,
+				47571B7523A63FC800364237 /* Controller */,
+				47571B5323A63F6F00364237 /* AppDelegate.swift */,
+				47571B5523A63F6F00364237 /* SceneDelegate.swift */,
+				47571B5723A63F6F00364237 /* ViewController.swift */,
+				47571B5923A63F6F00364237 /* Main.storyboard */,
+				47571B5C23A63F7100364237 /* Assets.xcassets */,
+				47571B5E23A63F7100364237 /* LaunchScreen.storyboard */,
+				47571B6123A63F7100364237 /* Info.plist */,
+			);
+			path = SwiftBillReader;
+			sourceTree = "<group>";
+		};
+		47571B6923A63F7100364237 /* SwiftBillReaderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				47571B6A23A63F7100364237 /* SwiftBillReaderUITests.swift */,
+				47571B6C23A63F7100364237 /* Info.plist */,
+			);
+			path = SwiftBillReaderUITests;
+			sourceTree = "<group>";
+		};
+		47571B7523A63FC800364237 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				47571B7623A63FDD00364237 /* ReceiptContentsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47571B4F23A63F6F00364237 /* SwiftBillReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47571B6F23A63F7100364237 /* Build configuration list for PBXNativeTarget "SwiftBillReader" */;
+			buildPhases = (
+				47571B4C23A63F6F00364237 /* Sources */,
+				47571B4D23A63F6F00364237 /* Frameworks */,
+				47571B4E23A63F6F00364237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftBillReader;
+			productName = SwiftBillReader;
+			productReference = 47571B5023A63F6F00364237 /* SwiftBillReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		47571B6523A63F7100364237 /* SwiftBillReaderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47571B7223A63F7100364237 /* Build configuration list for PBXNativeTarget "SwiftBillReaderUITests" */;
+			buildPhases = (
+				47571B6223A63F7100364237 /* Sources */,
+				47571B6323A63F7100364237 /* Frameworks */,
+				47571B6423A63F7100364237 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47571B6823A63F7100364237 /* PBXTargetDependency */,
+			);
+			name = SwiftBillReaderUITests;
+			productName = SwiftBillReaderUITests;
+			productReference = 47571B6623A63F7100364237 /* SwiftBillReaderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47571B4823A63F6F00364237 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Hacker Packer";
+				TargetAttributes = {
+					47571B4F23A63F6F00364237 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					47571B6523A63F7100364237 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 47571B4F23A63F6F00364237;
+					};
+				};
+			};
+			buildConfigurationList = 47571B4B23A63F6F00364237 /* Build configuration list for PBXProject "SwiftBillReader" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 47571B4723A63F6F00364237;
+			productRefGroup = 47571B5123A63F6F00364237 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47571B4F23A63F6F00364237 /* SwiftBillReader */,
+				47571B6523A63F7100364237 /* SwiftBillReaderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		47571B4E23A63F6F00364237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47571B6023A63F7100364237 /* LaunchScreen.storyboard in Resources */,
+				47571B5D23A63F7100364237 /* Assets.xcassets in Resources */,
+				47571B5B23A63F6F00364237 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47571B6423A63F7100364237 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47571B4C23A63F6F00364237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47571B5823A63F6F00364237 /* ViewController.swift in Sources */,
+				47571B5423A63F6F00364237 /* AppDelegate.swift in Sources */,
+				47571B5623A63F6F00364237 /* SceneDelegate.swift in Sources */,
+				47571B7723A63FDD00364237 /* ReceiptContentsViewController.swift in Sources */,
+				47571B7923A6404A00364237 /* RecognizedTextDataSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47571B6223A63F7100364237 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47571B6B23A63F7100364237 /* SwiftBillReaderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		47571B6823A63F7100364237 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47571B4F23A63F6F00364237 /* SwiftBillReader */;
+			targetProxy = 47571B6723A63F7100364237 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		47571B5923A63F6F00364237 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47571B5A23A63F6F00364237 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		47571B5E23A63F7100364237 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47571B5F23A63F7100364237 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		47571B6D23A63F7100364237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		47571B6E23A63F7100364237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		47571B7023A63F7100364237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4P8654R2FY;
+				INFOPLIST_FILE = SwiftBillReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.HP.billReader.SwiftBillReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		47571B7123A63F7100364237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4P8654R2FY;
+				INFOPLIST_FILE = SwiftBillReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.HP.billReader.SwiftBillReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		47571B7323A63F7100364237 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4P8654R2FY;
+				INFOPLIST_FILE = SwiftBillReaderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.HP.billReader.SwiftBillReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftBillReader;
+			};
+			name = Debug;
+		};
+		47571B7423A63F7100364237 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4P8654R2FY;
+				INFOPLIST_FILE = SwiftBillReaderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.HP.billReader.SwiftBillReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftBillReader;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47571B4B23A63F6F00364237 /* Build configuration list for PBXProject "SwiftBillReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47571B6D23A63F7100364237 /* Debug */,
+				47571B6E23A63F7100364237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47571B6F23A63F7100364237 /* Build configuration list for PBXNativeTarget "SwiftBillReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47571B7023A63F7100364237 /* Debug */,
+				47571B7123A63F7100364237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47571B7223A63F7100364237 /* Build configuration list for PBXNativeTarget "SwiftBillReaderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47571B7323A63F7100364237 /* Debug */,
+				47571B7423A63F7100364237 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47571B4823A63F6F00364237 /* Project object */;
+}
