@@ -79,20 +79,18 @@ class CoreDataManager {
     //        return (try? JSONSerialization.data(withJSONObject: jsonArray))
     //    }
     
-    static func createExportString() -> String? {
+    static func saveAndExport() -> URL? {
+        
         guard let data: [DataModel] = CoreDataManager.getAllData() else {
             return nil
         }
         
-        var export: String = NSLocalizedString("Bill Number, Title, Amount \n", comment: "")
+        var exportString: String = NSLocalizedString("Bill Number, Title, Amount \n", comment: "")
         for (index, item) in data.enumerated() {
             //Index is the bill number
-            export += "\(index),\(item.date),\(item.category),\(item.total),\(item.desc ?? "") \n"
+            exportString += "\(index),\(item.date),\(item.category),\(item.total),\(item.desc ?? "") \n"
         }
-        return export
-    }
-    
-    static func saveAndExport(exportString: String) -> NSURL? {
+        
         let exportFilePath = NSTemporaryDirectory() + "itemlist.csv"
         let exportFileURL = NSURL(fileURLWithPath: exportFilePath)
         FileManager.default.createFile(atPath: exportFilePath, contents: NSData() as Data, attributes: nil)
@@ -111,7 +109,7 @@ class CoreDataManager {
             
             fileHandle!.closeFile()
             
-            return NSURL(fileURLWithPath: exportFilePath)
+            return URL(fileURLWithPath: exportFilePath)
         }
         return nil
     }

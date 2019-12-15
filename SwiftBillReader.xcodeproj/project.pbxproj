@@ -16,6 +16,7 @@
 		41FFE96323A6953A00767CEA /* barcodelottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 41FFE96223A6953A00767CEA /* barcodelottie.json */; };
 		471D0B7E23A669C500066CD1 /* ResultviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */; };
 		471D0B8123A66B4D00066CD1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B8023A66B4D00066CD1 /* Extension.swift */; };
+		471D0BA123A6B28500066CD1 /* HistoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0BA023A6B28500066CD1 /* HistoryHelper.swift */; };
 		47571B5423A63F6F00364237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5323A63F6F00364237 /* AppDelegate.swift */; };
 		47571B5623A63F6F00364237 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5523A63F6F00364237 /* SceneDelegate.swift */; };
 		47571B5823A63F6F00364237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5723A63F6F00364237 /* ViewController.swift */; };
@@ -66,6 +67,7 @@
 		41FFE96223A6953A00767CEA /* barcodelottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = barcodelottie.json; sourceTree = "<group>"; };
 		471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultviewHelper.swift; sourceTree = "<group>"; };
 		471D0B8023A66B4D00066CD1 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		471D0BA023A6B28500066CD1 /* HistoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHelper.swift; sourceTree = "<group>"; };
 		47571B5023A63F6F00364237 /* SwiftBillReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBillReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47571B5323A63F6F00364237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47571B5523A63F6F00364237 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */,
+				471D0BA023A6B28500066CD1 /* HistoryHelper.swift */,
 				B6222BF823A6A82900E207BD /* DateSelectionHelper.swift */,
 			);
 			path = Helper;
@@ -311,6 +314,7 @@
 				47571B5423A63F6F00364237 /* AppDelegate.swift in Sources */,
 				47571B5623A63F6F00364237 /* SceneDelegate.swift in Sources */,
 				47571B7723A63FDD00364237 /* ReceiptContentsViewController.swift in Sources */,
+				471D0BA123A6B28500066CD1 /* HistoryHelper.swift in Sources */,
 				41C6B30823A6705300675A8E /* CoreDataManager.swift in Sources */,
 				47571B7923A6404A00364237 /* RecognizedTextDataSource.swift in Sources */,
 				B6222BF723A6851E00E207BD /* ReceiptItem.swift in Sources */,
@@ -477,7 +481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TWFBHPHN4Q;
+				DEVELOPMENT_TEAM = 66VD8WFS7C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -487,7 +491,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.billReader.SwiftBillReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blReader.SwiftBillReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -499,7 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TWFBHPHN4Q;
+				DEVELOPMENT_TEAM = 66VD8WFS7C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -509,7 +513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.billReader.SwiftBillReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blReader.SwiftBillReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
