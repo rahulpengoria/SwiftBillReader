@@ -153,8 +153,8 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MMM-yyyy"
         let date = formatter.date(from: self.receiptItem?.date ?? "") ?? Date()
-        let dataModel = DataModel(category: self.receiptItem?.category ?? "", date: formatter.string(from: date), desc: self.receiptItem?.desc, total: self.receiptItem?.total ?? 0.0)
-        return dataModel
+        
+        return DataModel(category: receiptItem?.category, date: date, desc: receiptItem?.desc, total: receiptItem?.total, image: self.image.pngData())
     }
 
 }

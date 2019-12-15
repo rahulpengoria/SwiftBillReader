@@ -45,36 +45,39 @@ class CoreDataManager {
             NSFetchRequest<NSManagedObject>(entityName: "Expense")
         do {
             let items = try managedContext.fetch(fetchRequest)
-            guard let jsonAnyObject = CoreDataManager.convertToJSONArray(moArray: items) else {
-                return nil
+            
+            var modelArray = [DataModel]()
+            for item in items {
+                let category = item.value(forKey: "category") as? String
+                let date = item.value(forKey: "date") as? Date
+                let desc = item.value(forKey: "desc") as? String
+                let total = item.value(forKey: "total") as? Double
+                let image = item.value(forKey: "image") as? Data
+                
+                let model = DataModel(category: category, date: date, desc: desc, total: total, image: image)
+                modelArray.append(model)
             }
-            let decoder = JSONDecoder()
-            do {
-                let people = try decoder.decode([DataModel].self, from: jsonAnyObject)
-                return people
-            } catch {
-                print(error.localizedDescription)
-            }
+            return modelArray
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         return nil
     }
     
-    static func convertToJSONArray(moArray: [NSManagedObject]) -> Data? {
-        var jsonArray: [[String: Any]] = []
-        for item in moArray {
-            var dict: [String: Any] = [:]
-            for attribute in item.entity.attributesByName {
-                //check if value is present, then add key to dictionary so as to avoid the nil value crash
-                if let value = item.value(forKey: attribute.key) {
-                    dict[attribute.key] = value
-                }
-            }
-            jsonArray.append(dict)
-        }
-        return (try? JSONSerialization.data(withJSONObject: jsonArray))
-    }
+    //    static func convertToJSONArray(moArray: [NSManagedObject]) -> Data? {
+    //        var jsonArray: [[String: Any]] = []
+    //        for item in moArray {
+    //            var dict: [String: Any] = [:]
+    //            for attribute in item.entity.attributesByName {
+    //                //check if value is present, then add key to dictionary so as to avoid the nil value crash
+    //                if let value = item.value(forKey: attribute.key) {
+    //                    dict[attribute.key] = value
+    //                }
+    //            }
+    //            jsonArray.append(dict)
+    //        }
+    //        return (try? JSONSerialization.data(withJSONObject: jsonArray))
+    //    }
     
     static func createExportString() -> String? {
         guard let data: [DataModel] = CoreDataManager.getAllData() else {
@@ -164,16 +167,19 @@ extension CoreDataManager {
             NSFetchRequest<NSManagedObject>(entityName: "History")
         do {
             let items = try managedContext.fetch(fetchRequest)
-            guard let jsonAnyObject = CoreDataManager.convertToJSONArray(moArray: items) else {
-                return nil
+            
+            var modelArray = [HistoryCSVModel]()
+            for item in items {
+                let fileDisplayName = item.value(forKey: "fileDisplayName") as? String
+                
+                let filePath = item.value(forKey: "filePath") as? URL
+                let submitDate = item.value(forKey: "submitDate") as? Date
+                
+                let model = HistoryCSVModel(fileDisplayName: fileDisplayName, filePath: filePath, submitDate: submitDate)
+                modelArray.append(model)
             }
-            let decoder = JSONDecoder()
-            do {
-                let history = try decoder.decode([HistoryCSVModel].self, from: jsonAnyObject)
-                return history
-            } catch {
-                print(error.localizedDescription)
-            }
+            return modelArray
+            
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }

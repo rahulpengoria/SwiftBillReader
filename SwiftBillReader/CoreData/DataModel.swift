@@ -9,9 +9,9 @@
 import Foundation
 
 struct DataModel: Codable {
-    var category: String
-    var date: Date
+    var category: String?
+    var date: Date?
     var desc: String?
-    var total: Double
-    var image: Data
+    var total: Double?
+    var image: Data?
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct HistoryCSVModel: Codable {
-    var fileDisplayName: String
-    var filePath: URL
-    var submitDate: Date
+    var fileDisplayName: String?
+    var filePath: URL?
+    var submitDate: Date?
 }
