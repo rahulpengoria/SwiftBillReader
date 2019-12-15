@@ -12,6 +12,7 @@
 		41C6B30D23A6739E00675A8E /* SwiftBillReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30B23A6739E00675A8E /* SwiftBillReader.xcdatamodeld */; };
 		41FFE96023A6940500767CEA /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41FFE95F23A6940400767CEA /* Lottie.framework */; };
 		41FFE96123A6940500767CEA /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41FFE95F23A6940400767CEA /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41FFE96323A6953A00767CEA /* barcodelottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 41FFE96223A6953A00767CEA /* barcodelottie.json */; };
 		471D0B7E23A669C500066CD1 /* ResultviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */; };
 		471D0B8123A66B4D00066CD1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B8023A66B4D00066CD1 /* Extension.swift */; };
 		47571B5423A63F6F00364237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5323A63F6F00364237 /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		41C6B30923A6716700675A8E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		41C6B30C23A6739E00675A8E /* SwiftBillReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftBillReader.xcdatamodel; sourceTree = "<group>"; };
 		41FFE95F23A6940400767CEA /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
+		41FFE96223A6953A00767CEA /* barcodelottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = barcodelottie.json; sourceTree = "<group>"; };
 		471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultviewHelper.swift; sourceTree = "<group>"; };
 		471D0B8023A66B4D00066CD1 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		47571B5023A63F6F00364237 /* SwiftBillReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBillReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 		47571B5223A63F6F00364237 /* SwiftBillReader */ = {
 			isa = PBXGroup;
 			children = (
+				41FFE96223A6953A00767CEA /* barcodelottie.json */,
 				47D95BA123A66916009F943B /* Helper */,
 				47D95B9923A65B4B009F943B /* Cartfile */,
 				47571B7823A6404A00364237 /* RecognizedTextDataSource.swift */,
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47571B6023A63F7100364237 /* LaunchScreen.storyboard in Resources */,
+				41FFE96323A6953A00767CEA /* barcodelottie.json in Resources */,
 				47571B5D23A63F7100364237 /* Assets.xcassets in Resources */,
 				47D95B9A23A65B4B009F943B /* Cartfile in Resources */,
 				47571B5B23A63F6F00364237 /* Main.storyboard in Resources */,
