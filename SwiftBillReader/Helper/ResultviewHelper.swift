@@ -36,7 +36,7 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,6 +54,14 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
             customView.isUserInteractionEnabled = true
             customView.textFieldText = NSAttributedString(string: "\(total)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
             customView.placeholderText = NSAttributedString(string: "Total amount", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#0095da")])
+        } else if indexPath.row == 2 {
+            if let category = receiptItem?.category {
+                customView.textFieldText = NSAttributedString(string: category, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+                customView.placeholderText = NSAttributedString(string: "Category", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#0095da")])
+            } else {
+                customView.textFieldText = NSAttributedString(string: "Select Category", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+            }
+            customView.isUserInteractionEnabled = false
         }
         cell.setCard(horizontalOffset: 16, verticalOffset: 8)
         return cell
@@ -71,7 +79,17 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            
+            let helper = DateSelectionHelper()
+            helper.delegate = self
+            helper.dateArray = self.dateArray
+            let controller = CommonTableViewController.instantiate(dataSource: helper, delegate: helper)
+            self.controller?.navigationController?.pushViewController(controller, animated: true)
+        } else if indexPath.row == 2 {
+            let helper = DateSelectionHelper()
+            helper.delegate = self
+            helper.categoryArray = ["Meal", "Entertainment"]
+            let controller = CommonTableViewController.instantiate(dataSource: helper, delegate: helper)
+            self.controller?.navigationController?.pushViewController(controller, animated: true)
         }
     }
     
@@ -126,12 +144,31 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
     }
     
     @objc func actionBtnInfo(sender: UIButton) {
-        
+        CoreDataManager.save(data: self.createDataModel())
+        self.controller?.navigationController?.popViewController(animated: true)
+        print(CoreDataManager.getAllData())
+    }
+    
+    func createDataModel() -> DataModel {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy"
+        let date = formatter.date(from: self.receiptItem?.date ?? "") ?? Date()
+        let dataModel = DataModel(category: self.receiptItem?.category ?? "", date: formatter.string(from: date), desc: self.receiptItem?.desc, total: self.receiptItem?.total ?? 0.0)
+        return dataModel
     }
 
 }
 
-extension ResultviewHelper {
+extension ResultviewHelper: DateSelectionHelperDelegate {
+    func selected(dateString: String) {
+        self.receiptItem?.date = dateString
+        self.controller?.reloadData()
+    }
+    
+    func selected(categoryString: String) {
+        self.receiptItem?.category = categoryString
+        self.controller?.reloadData()
+    }
     
 }
 
