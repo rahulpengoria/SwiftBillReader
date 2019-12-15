@@ -15,6 +15,8 @@ import Lottie
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var billButton: UIButton!
+    @IBOutlet weak var submitJourneyButton: UIButton!
     @IBOutlet weak var animationHolderView: UIView!
     
     var textRecognitionRequest = VNRecognizeTextRequest()
@@ -22,7 +24,6 @@ class ViewController: UIViewController {
     let helper = ResultviewHelper()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupAnimation()
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
             if let results = request.results, !results.isEmpty {
                 if let requestResults = request.results as? [VNRecognizedTextObservation] {
@@ -36,7 +37,19 @@ class ViewController: UIViewController {
         // This doesn't require OCR on a live camera feed, select accurate for more accurate results.
         textRecognitionRequest.recognitionLevel = .accurate
         textRecognitionRequest.usesLanguageCorrection = true
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupAnimation()
+        if let count = CoreDataManager.getAllData()?.count, count > 0 {
+            billButton.setTitle("Add Bill", for: .normal)
+            submitJourneyButton.isHidden = false
+        } else {
+            billButton.setTitle("Add Your First Bill", for: .normal)
+            submitJourneyButton.isHidden = true
+        }
     }
     @IBAction func scanReceipt(_ sender: Any) {
         let documentCameraViewController = VNDocumentCameraViewController()
@@ -44,25 +57,42 @@ class ViewController: UIViewController {
         present(documentCameraViewController, animated: true)
     }
     
-    @IBAction func addBillDidTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "", message: "Please Select an Option", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Full screen", style: .default, handler: { (_) in
-            let documentCameraViewController = VNDocumentCameraViewController()
-            documentCameraViewController.delegate = self
-            self.present(documentCameraViewController, animated: true)
-        }))
+    @IBAction func submitJourneyButtonTapped(_ sender: Any) {
         
-        alert.addAction(UIAlertAction(title: "MultiPart", style: .default, handler: { (_) in
-            
-        }))
-        
-        self.present(alert, animated: true, completion: {
-            print("completion block")
+        let alertController = UIAlertController(title: "Enter Journey", message: "", preferredStyle: .alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Journey Name"
+        }
+        let saveAction = UIAlertAction(title: "Submit Journey", style: .default, handler: { alert -> Void in
+            let firstTextField = alertController.textFields![0] as UITextField
+            guard let text = firstTextField.text, text.isEmpty else {
+                return
+            }
+            if let url = CoreDataManager.saveAndExport(){
+                let model = HistoryCSVModel(fileDisplayName: text, filePath: url, submitDate: Date())
+                CoreDataManager.saveCSV(withModel: model)
+            }
         })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action : UIAlertAction!) -> Void in })
+
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+
+        self.present(alertController, animated: true, completion: nil)
         
+        
+    }
+    @IBAction func addBillDidTapped(_ sender: Any) {
+        let documentCameraViewController = VNDocumentCameraViewController()
+        documentCameraViewController.delegate = self
+        self.present(documentCameraViewController, animated: true)
     }
     
     @IBAction func historyButtonDidTapped(_ sender: Any) {
+        let helper = HistoryHelper()
+        let controller = CommonTableViewController.instantiate(dataSource: helper, delegate: helper)
+        helper.controller = controller
+        self.navigationController?.pushViewController(controller, animated: true)
         
     }
     func processImage(image: UIImage) {
@@ -82,18 +112,6 @@ class ViewController: UIViewController {
 
 extension ViewController: VNDocumentCameraViewControllerDelegate {
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-//        var vcID: String?
-//        switch scanMode {
-//        case .receipts:
-//            vcID = DocumentScanningViewController.receiptContentsIdentifier
-//        case .businessCards:
-//            vcID = DocumentScanningViewController.businessCardContentsIdentifier
-//        default:
-//            vcID = DocumentScanningViewController.otherContentsIdentifier
-//        }
-//
-//            resultsViewController = helper as? (UIViewController & RecognizedTextDataSource)
-        
         self.view.lock()
         controller.dismiss(animated: true) {
             DispatchQueue.global(qos: .userInitiated).async {
@@ -121,5 +139,6 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
         animView.play()
     }
 }
+
 
 

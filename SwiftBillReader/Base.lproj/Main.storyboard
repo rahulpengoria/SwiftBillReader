@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8W7-ED-oYW">
-                                <rect key="frame" x="172.5" y="302" width="69" height="38"/>
+                                <rect key="frame" x="172.5" y="290" width="69" height="38"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Add Bill">
                                     <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,17 +48,30 @@
                                     <constraint firstAttribute="height" constant="350" id="eac-hl-lD6"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVK-0G-amq">
+                                <rect key="frame" x="132" y="336" width="150" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Submit Journey">
+                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitJourneyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CoJ-vb-Ka5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sOQ-C5-idu" secondAttribute="trailing" constant="10" id="7lg-SW-6Q0"/>
+                            <constraint firstItem="8W7-ED-oYW" firstAttribute="centerX" secondItem="dVK-0G-amq" secondAttribute="centerX" id="8NY-tM-tGP"/>
+                            <constraint firstItem="8W7-ED-oYW" firstAttribute="top" secondItem="bYg-OH-kbu" secondAttribute="bottom" constant="8" id="C18-x6-XUh"/>
                             <constraint firstItem="sOQ-C5-idu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="E8k-0y-ROW"/>
-                            <constraint firstItem="sOQ-C5-idu" firstAttribute="top" secondItem="8W7-ED-oYW" secondAttribute="bottom" constant="90" id="MjA-Zn-jO7"/>
+                            <constraint firstItem="dVK-0G-amq" firstAttribute="top" secondItem="8W7-ED-oYW" secondAttribute="bottom" constant="8" id="Ucy-Mu-Eq0"/>
                             <constraint firstItem="VN0-Hu-VsJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Wvi-Jd-QMy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VN0-Hu-VsJ" secondAttribute="trailing" constant="20" id="XSh-eI-7aU"/>
+                            <constraint firstItem="dVK-0G-amq" firstAttribute="centerX" secondItem="bYg-OH-kbu" secondAttribute="centerX" id="Z2H-cs-uzq"/>
                             <constraint firstItem="VN0-Hu-VsJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="53" id="f2d-Ut-Dld"/>
+                            <constraint firstItem="sOQ-C5-idu" firstAttribute="top" secondItem="dVK-0G-amq" secondAttribute="bottom" constant="55" id="gNM-9u-qYr"/>
                             <constraint firstItem="bYg-OH-kbu" firstAttribute="top" secondItem="VN0-Hu-VsJ" secondAttribute="bottom" constant="68.5" id="gOQ-JC-CiS"/>
-                            <constraint firstItem="8W7-ED-oYW" firstAttribute="top" secondItem="bYg-OH-kbu" secondAttribute="bottom" constant="20" id="qdY-4Q-Ov1"/>
                             <constraint firstItem="bYg-OH-kbu" firstAttribute="centerX" secondItem="VN0-Hu-VsJ" secondAttribute="centerX" id="wPu-BF-c4r"/>
                             <constraint firstItem="8W7-ED-oYW" firstAttribute="centerX" secondItem="bYg-OH-kbu" secondAttribute="centerX" id="yeb-ab-oZb"/>
                         </constraints>
@@ -67,6 +80,8 @@
                     <navigationItem key="navigationItem" id="zrp-xG-377"/>
                     <connections>
                         <outlet property="animationHolderView" destination="sOQ-C5-idu" id="oJx-9Z-FHa"/>
+                        <outlet property="billButton" destination="8W7-ED-oYW" id="Kdm-bz-90M"/>
+                        <outlet property="submitJourneyButton" destination="dVK-0G-amq" id="ktc-iw-cq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
