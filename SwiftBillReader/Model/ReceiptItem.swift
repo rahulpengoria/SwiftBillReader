@@ -13,6 +13,8 @@ class ReceiptItem: NSObject, Codable {
     var total: Double?
     var date: String?
     var image: String?
+    var category: String?
+    var desc: String?
     
 
 }

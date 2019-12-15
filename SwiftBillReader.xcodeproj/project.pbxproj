@@ -30,6 +30,7 @@
 		47D95B9E23A66808009F943B /* CommonUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47D95B9D23A66808009F943B /* CommonUIKit.framework */; };
 		47D95B9F23A66808009F943B /* CommonUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47D95B9D23A66808009F943B /* CommonUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6222BF723A6851E00E207BD /* ReceiptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6222BF623A6851E00E207BD /* ReceiptItem.swift */; };
+		B6222BF923A6A82900E207BD /* DateSelectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6222BF823A6A82900E207BD /* DateSelectionHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		47D95B9923A65B4B009F943B /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		47D95B9D23A66808009F943B /* CommonUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CommonUIKit.framework; path = Carthage/Build/iOS/CommonUIKit.framework; sourceTree = "<group>"; };
 		B6222BF623A6851E00E207BD /* ReceiptItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptItem.swift; sourceTree = "<group>"; };
+		B6222BF823A6A82900E207BD /* DateSelectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			children = (
 				471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */,
 				471D0BA023A6B28500066CD1 /* HistoryHelper.swift */,
+				B6222BF823A6A82900E207BD /* DateSelectionHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6222BF923A6A82900E207BD /* DateSelectionHelper.swift in Sources */,
 				47571B5823A63F6F00364237 /* ViewController.swift in Sources */,
 				471D0B7E23A669C500066CD1 /* ResultviewHelper.swift in Sources */,
 				471D0B8123A66B4D00066CD1 /* Extension.swift in Sources */,
