@@ -7,6 +7,7 @@ Viewcontroller for scanned receipts.
 
 import UIKit
 import Vision
+import CommonUIKit
 
 class ReceiptContentsViewController: UITableViewController {
 
