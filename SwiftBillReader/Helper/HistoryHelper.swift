@@ -47,25 +47,21 @@ class HistoryHelper: NSObject, CommonDelegateAndDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        if cell == nil {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-            
-        }
-        cell?.backgroundColor = UIColor.systemGroupedBackground
-        cell?.selectionStyle = .none
-        cell?.detailTextLabel?.numberOfLines = 0
-        cell?.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
-        cell?.textLabel?.textColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        cell?.imageView?.translatesAutoresizingMaskIntoConstraints = false
-        cell?.imageView?.heightAnchor.constraint(equalToConstant: 0.0).isActive = true
-        cell?.imageView?.contentMode = .scaleAspectFit
-        cell?.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
-        cell?.detailTextLabel?.textColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+        var cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        cell.backgroundColor = UIColor.systemGroupedBackground
+        cell.selectionStyle = .none
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+        cell.textLabel?.textColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        cell.imageView?.translatesAutoresizingMaskIntoConstraints = false
+        cell.imageView?.heightAnchor.constraint(equalToConstant: 0.0).isActive = true
+        cell.imageView?.contentMode = .scaleAspectFit
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
+        cell.detailTextLabel?.textColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
 
-        cell?.textLabel?.text = list[indexPath.row].fileDisplayName
+        cell.textLabel?.text = list[indexPath.row].fileDisplayName
         
-        cell?.detailTextLabel?.text = self.getDateString(date: list[indexPath.row].submitDate)
+        cell.detailTextLabel?.text = self.getDateString(date: list[indexPath.row].submitDate ?? Date())
 
         return cell ?? UITableViewCell()
     }

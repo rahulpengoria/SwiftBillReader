@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         }
         let saveAction = UIAlertAction(title: "Submit Journey", style: .default, handler: { alert -> Void in
             let firstTextField = alertController.textFields![0] as UITextField
-            guard let text = firstTextField.text, text.isEmpty else {
+            guard let text = firstTextField.text, !text.isEmpty else {
                 return
             }
             if let url = CoreDataManager.saveAndExport(){
