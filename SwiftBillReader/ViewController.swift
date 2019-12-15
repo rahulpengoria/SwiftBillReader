@@ -9,11 +9,12 @@
 import UIKit
 import VisionKit
 import Vision
+import CommonUIKit
 
 class ViewController: UIViewController {
     var textRecognitionRequest = VNRecognizeTextRequest()
     var resultsViewController: (UIViewController & RecognizedTextDataSource)?
-
+    let helper = ResultviewHelper()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +22,8 @@ class ViewController: UIViewController {
             if let results = request.results, !results.isEmpty {
                 if let requestResults = request.results as? [VNRecognizedTextObservation] {
                     DispatchQueue.main.async {
-                        self.resultsViewController?.addRecognizedText(recognizedText: requestResults)
+                        self.helper.addRecognizedText(recognizedText: requestResults)
+                        //self.resultsViewController?.addRecognizedText(recognizedText: requestResults)
                     }
                 }
             }
@@ -44,11 +46,11 @@ class ViewController: UIViewController {
             documentCameraViewController.delegate = self
             self.present(documentCameraViewController, animated: true)
         }))
-
+        
         alert.addAction(UIAlertAction(title: "MultiPart", style: .default, handler: { (_) in
             
         }))
-
+        
         self.present(alert, animated: true, completion: {
             print("completion block")
         })
@@ -70,9 +72,7 @@ class ViewController: UIViewController {
         } catch {
             print(error)
         }
-    }
-    
-
+    }    
 }
 
 extension ViewController: VNDocumentCameraViewControllerDelegate {
@@ -87,18 +87,21 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
 //            vcID = DocumentScanningViewController.otherContentsIdentifier
 //        }
 //
-            resultsViewController = ResultviewHelper() as? (UIViewController & RecognizedTextDataSource)
+//            resultsViewController = helper as? (UIViewController & RecognizedTextDataSource)
+        
         self.view.lock()
         controller.dismiss(animated: true) {
             DispatchQueue.global(qos: .userInitiated).async {
                 for pageNumber in 0 ..< scan.pageCount {
                     let image = scan.imageOfPage(at: pageNumber)
+                    self.helper.image = image
                     self.processImage(image: image)
                 }
                 DispatchQueue.main.async {
-                    if let resultsVC = self.resultsViewController {
-                        self.navigationController?.pushViewController(resultsVC, animated: true)
-                    }
+//                    if let resultsVC = self.resultsViewController {
+                    let controller = CommonTableViewController.instantiate(dataSource: self.helper, delegate: self.helper)
+                        self.navigationController?.pushViewController(controller, animated: true)
+//                    }
                     
                     self.view.unlock()
                 }
