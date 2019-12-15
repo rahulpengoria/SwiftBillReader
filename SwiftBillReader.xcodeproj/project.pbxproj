@@ -10,6 +10,8 @@
 		41C6B30823A6705300675A8E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30723A6705300675A8E /* CoreDataManager.swift */; };
 		41C6B30A23A6716700675A8E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30923A6716700675A8E /* DataModel.swift */; };
 		41C6B30D23A6739E00675A8E /* SwiftBillReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30B23A6739E00675A8E /* SwiftBillReader.xcdatamodeld */; };
+		41FFE96023A6940500767CEA /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41FFE95F23A6940400767CEA /* Lottie.framework */; };
+		41FFE96123A6940500767CEA /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41FFE95F23A6940400767CEA /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		471D0B7E23A669C500066CD1 /* ResultviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */; };
 		471D0B8123A66B4D00066CD1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B8023A66B4D00066CD1 /* Extension.swift */; };
 		47571B5423A63F6F00364237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5323A63F6F00364237 /* AppDelegate.swift */; };
@@ -44,6 +46,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				47D95B9F23A66808009F943B /* CommonUIKit.framework in Embed Frameworks */,
+				41FFE96123A6940500767CEA /* Lottie.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +57,7 @@
 		41C6B30723A6705300675A8E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		41C6B30923A6716700675A8E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		41C6B30C23A6739E00675A8E /* SwiftBillReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftBillReader.xcdatamodel; sourceTree = "<group>"; };
+		41FFE95F23A6940400767CEA /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
 		471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultviewHelper.swift; sourceTree = "<group>"; };
 		471D0B8023A66B4D00066CD1 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		47571B5023A63F6F00364237 /* SwiftBillReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBillReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47D95B9E23A66808009F943B /* CommonUIKit.framework in Frameworks */,
+				41FFE96023A6940500767CEA /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +158,7 @@
 		47D95B9C23A66807009F943B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41FFE95F23A6940400767CEA /* Lottie.framework */,
 				47D95B9D23A66808009F943B /* CommonUIKit.framework */,
 			);
 			name = Frameworks;
