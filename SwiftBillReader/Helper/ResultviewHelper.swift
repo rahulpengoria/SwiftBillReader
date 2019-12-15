@@ -17,9 +17,10 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
     var controller: CommonTableViewController?
     var transcript = ""
     var image = UIImage()
+    var dateArray = [Date]()
     
     func navigationBarColor() -> UIColor? {
-        return .blue
+        return .lightGray
     }
     
     func backgroundColorForTableView() -> UIColor? {
@@ -42,10 +43,15 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommonUIKit.CustomTextField", for: indexPath) as? BaseTableViewCell, let customView = cell.customView as? CustomTextField else {
             return UITableViewCell()
         }
+        customView.backgroundColor = .white
+        customView.delegate = self
+        customView.isUserInteractionEnabled = false
         if indexPath.row == 0, let date = receiptItem?.date {
+            customView.isUserInteractionEnabled = false
             customView.textFieldText = NSAttributedString(string: date, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
             customView.placeholderText = NSAttributedString(string: "Date", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#0095da")])
         } else if indexPath.row == 1, let total = receiptItem?.total {
+            customView.isUserInteractionEnabled = true
             customView.textFieldText = NSAttributedString(string: "\(total)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
             customView.placeholderText = NSAttributedString(string: "Total amount", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#0095da")])
         }
@@ -63,36 +69,16 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
         }
     }
     
-    func getDateStringFrom(string: String) -> String {
-        var dateString = ""
-        let pattern = "(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.]([0-9]+)"
-        let pattern2 = "(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.]([0-9]+)"
-        let pattern3 = "([0-9]+)[- /.](0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])"
-        let pattern4 = "(0[1-9]|[12][0-9]|3[01])[- /.]([a-z A-Z]+)[- /.]([0-9]+)"
-        let pattern5 = "([a-z A-Z]+)[- /.](0[1-9]|[12][0-9]|3[01])[- /.]([0-9]+)"
-        let pattern6 = "(20[0-9]+)[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])"
-        
-        let expression = try! NSRegularExpression.init(pattern: pattern, options: .caseInsensitive)
-        let expression2 = try! NSRegularExpression.init(pattern: pattern2, options: .caseInsensitive)
-        let expression3 = try! NSRegularExpression.init(pattern: pattern3, options: .caseInsensitive)
-        let expression4 = try! NSRegularExpression.init(pattern: pattern4, options: .caseInsensitive)
-        let expression5 = try! NSRegularExpression.init(pattern: pattern5, options: .caseInsensitive)
-        let expression6 = try! NSRegularExpression.init(pattern: pattern6, options: .caseInsensitive)
-        
-        if let result = expression5.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
-            dateString = (string as NSString).substring(with: result.range)
-        } else if let result = expression4.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
-            dateString = (string as NSString).substring(with: result.range)
-        } else if let result = expression3.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
-            dateString = (string as NSString).substring(with: result.range)
-        } else if let result = expression6.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
-            dateString = (string as NSString).substring(with: result.range)
-        } else if let result = expression2.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
-            dateString = (string as NSString).substring(with: result.range)
-        } else if let result = expression.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
-            dateString = (string as NSString).substring(with: result.range)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            
         }
-        return dateString
+    }
+    
+    func getDateStringFrom(string: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy"
+        return formatter.string(from: self.dateArray.first ?? Date())
     }
     
     func getTotalAmountFrom(string: String) -> Double {
@@ -125,7 +111,45 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
     func heightForHeaderView(for viewController: CommonTableViewController) -> CGFloat {
         return viewController.view.frame.height / 3
     }
+    
+    func getFooterView(for viewController: CommonTableViewController) -> UIView? {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        button.backgroundColor = .orange
+        button.setTitle("Submit bill", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(actionBtnInfo(sender:)), for: .touchUpInside)
+        return button
+    }
+    
+    func heightForFooterView(for viewController: CommonTableViewController) -> CGFloat {
+        return 50
+    }
+    
+    @objc func actionBtnInfo(sender: UIButton) {
+        
+    }
 
+}
+
+extension ResultviewHelper {
+    
+}
+
+// MARK: CustomTextFieldDelegate
+
+extension ResultviewHelper: CustomTextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField, parent: Any) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, parent: Any) {
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField, parent: Any) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
 
@@ -136,6 +160,26 @@ extension ResultviewHelper: RecognizedTextDataSource {
         let maximumCandidates = 1
         for observation in recognizedText {
             guard let candidate = observation.topCandidates(maximumCandidates).first else { continue }
+            
+            let text = candidate.string
+            do {
+                // Create an NSDataDetector to detect whether there is a date in the string.
+                let types: NSTextCheckingResult.CheckingType = [.date]
+                let detector = try NSDataDetector(types: types.rawValue)
+                let matches = detector.matches(in: text, options: .init(), range: NSRange(location: 0, length: text.count))
+                for match in matches {
+                  if match.resultType == .date,
+                    let components = match.date {
+                    dateArray.append(components)
+                    print(("Date", components))
+                  } else {
+                    print("no components found")
+                  }
+                }
+            } catch {
+                print(error)
+            }
+            
             transcript += candidate.string
             transcript += "\n"
         }
