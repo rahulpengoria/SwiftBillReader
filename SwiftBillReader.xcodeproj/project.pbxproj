@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4188878523A6A8D200D4E65E /* HistoryCSVModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4188878423A6A8D200D4E65E /* HistoryCSVModel.swift */; };
 		41C6B30823A6705300675A8E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30723A6705300675A8E /* CoreDataManager.swift */; };
 		41C6B30A23A6716700675A8E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30923A6716700675A8E /* DataModel.swift */; };
 		41C6B30D23A6739E00675A8E /* SwiftBillReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30B23A6739E00675A8E /* SwiftBillReader.xcdatamodeld */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4188878423A6A8D200D4E65E /* HistoryCSVModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCSVModel.swift; sourceTree = "<group>"; };
 		41C6B30723A6705300675A8E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		41C6B30923A6716700675A8E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		41C6B30C23A6739E00675A8E /* SwiftBillReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftBillReader.xcdatamodel; sourceTree = "<group>"; };
@@ -101,6 +103,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4188878723A6A94200D4E65E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				41C6B30723A6705300675A8E /* CoreDataManager.swift */,
+				41C6B30923A6716700675A8E /* DataModel.swift */,
+				41C6B30B23A6739E00675A8E /* SwiftBillReader.xcdatamodeld */,
+				4188878423A6A8D200D4E65E /* HistoryCSVModel.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		47571B4723A63F6F00364237 = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +150,7 @@
 				47571B5E23A63F7100364237 /* LaunchScreen.storyboard */,
 				47571B6123A63F7100364237 /* Info.plist */,
 				471D0B8023A66B4D00066CD1 /* Extension.swift */,
-				41C6B30723A6705300675A8E /* CoreDataManager.swift */,
-				41C6B30923A6716700675A8E /* DataModel.swift */,
-				41C6B30B23A6739E00675A8E /* SwiftBillReader.xcdatamodeld */,
+				4188878723A6A94200D4E65E /* CoreData */,
 			);
 			path = SwiftBillReader;
 			sourceTree = "<group>";
@@ -301,6 +312,7 @@
 				B6222BF723A6851E00E207BD /* ReceiptItem.swift in Sources */,
 				41C6B30A23A6716700675A8E /* DataModel.swift in Sources */,
 				41C6B30D23A6739E00675A8E /* SwiftBillReader.xcdatamodeld in Sources */,
+				4188878523A6A8D200D4E65E /* HistoryCSVModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

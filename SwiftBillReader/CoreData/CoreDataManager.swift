@@ -12,18 +12,16 @@ import CoreData
 class CoreDataManager {
     
     static func save(data: DataModel) {
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
+        guard let managedContext =
+            (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
                 return
         }
-        let managedContext =
-            appDelegate.persistentContainer.viewContext
         let expense =
             NSEntityDescription.entity(forEntityName: "Expense",
                                        in: managedContext)!
         let dataUnit = NSManagedObject(entity: expense,
                                        insertInto: managedContext)
-
+        
         dataUnit.setValue(data.category, forKeyPath: "category")
         dataUnit.setValue(data.date, forKeyPath: "date")
         dataUnit.setValue(data.desc, forKey: "desc")
@@ -78,12 +76,11 @@ class CoreDataManager {
         return (try? JSONSerialization.data(withJSONObject: jsonArray))
     }
     
-    
     static func createExportString() -> String? {
         guard let data: [DataModel] = CoreDataManager.getAllData() else {
             return nil
         }
-                
+        
         var export: String = NSLocalizedString("Bill Number, Title, Amount \n", comment: "")
         for (index, item) in data.enumerated() {
             //Index is the bill number
@@ -103,17 +100,83 @@ class CoreDataManager {
         } catch {
             print("Error with fileHandle")
         }
-
+        
         if fileHandle != nil {
             fileHandle!.seekToEndOfFile()
             let csvData = exportString.data(using: String.Encoding.utf8, allowLossyConversion: false)
             fileHandle!.write(csvData!)
-
+            
             fileHandle!.closeFile()
-
+            
             return NSURL(fileURLWithPath: exportFilePath)
         }
         return nil
     }
+    
+    static func clearAll() {
+        guard let context =
+            (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
+                return
+        }
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Expense")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch let error as NSError {
+            print(error)
+        }
+    }
 }
 
+
+extension CoreDataManager {
+    
+    static func saveCSV(withModel model: HistoryCSVModel) {
+        guard let context =
+            (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
+                return
+        }
+        CoreDataManager.clearAll()
+        let expense =
+            NSEntityDescription.entity(forEntityName: "History",
+                                       in: context)!
+        let dataUnit = NSManagedObject(entity: expense,
+                                       insertInto: context)
+        dataUnit.setValue(model.fileDisplayName, forKeyPath: "fileDisplayName")
+        dataUnit.setValue(model.filePath, forKeyPath: "filePath")
+        dataUnit.setValue(model.submitDate, forKeyPath: "submitDate")
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+    
+    static func getAllCSVHistory() -> [HistoryCSVModel]? {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return nil
+        }
+        let managedContext =
+            appDelegate.persistentContainer.viewContext
+        let fetchRequest =
+            NSFetchRequest<NSManagedObject>(entityName: "History")
+        do {
+            let items = try managedContext.fetch(fetchRequest)
+            guard let jsonAnyObject = CoreDataManager.convertToJSONArray(moArray: items) else {
+                return nil
+            }
+            let decoder = JSONDecoder()
+            do {
+                let history = try decoder.decode([HistoryCSVModel].self, from: jsonAnyObject)
+                return history
+            } catch {
+                print(error.localizedDescription)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return nil
+    }
+}
