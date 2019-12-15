@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41C6B30823A6705300675A8E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30723A6705300675A8E /* CoreDataManager.swift */; };
+		41C6B30A23A6716700675A8E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30923A6716700675A8E /* DataModel.swift */; };
+		41C6B30D23A6739E00675A8E /* SwiftBillReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41C6B30B23A6739E00675A8E /* SwiftBillReader.xcdatamodeld */; };
+		41FFE96023A6940500767CEA /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41FFE95F23A6940400767CEA /* Lottie.framework */; };
+		41FFE96123A6940500767CEA /* Lottie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41FFE95F23A6940400767CEA /* Lottie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		41FFE96323A6953A00767CEA /* barcodelottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 41FFE96223A6953A00767CEA /* barcodelottie.json */; };
 		471D0B7E23A669C500066CD1 /* ResultviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */; };
 		471D0B8123A66B4D00066CD1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B8023A66B4D00066CD1 /* Extension.swift */; };
 		47571B5423A63F6F00364237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5323A63F6F00364237 /* AppDelegate.swift */; };
@@ -42,6 +48,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				47D95B9F23A66808009F943B /* CommonUIKit.framework in Embed Frameworks */,
+				41FFE96123A6940500767CEA /* Lottie.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +56,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		41C6B30723A6705300675A8E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		41C6B30923A6716700675A8E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		41C6B30C23A6739E00675A8E /* SwiftBillReader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftBillReader.xcdatamodel; sourceTree = "<group>"; };
+		41FFE95F23A6940400767CEA /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/iOS/Lottie.framework; sourceTree = "<group>"; };
+		41FFE96223A6953A00767CEA /* barcodelottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = barcodelottie.json; sourceTree = "<group>"; };
 		471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultviewHelper.swift; sourceTree = "<group>"; };
 		471D0B8023A66B4D00066CD1 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		47571B5023A63F6F00364237 /* SwiftBillReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBillReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47D95B9E23A66808009F943B /* CommonUIKit.framework in Frameworks */,
+				41FFE96023A6940500767CEA /* Lottie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				B6222BF523A6850100E207BD /* Model */,
+				41FFE96223A6953A00767CEA /* barcodelottie.json */,
 				47D95BA123A66916009F943B /* Helper */,
 				47D95B9923A65B4B009F943B /* Cartfile */,
 				47571B7823A6404A00364237 /* RecognizedTextDataSource.swift */,
@@ -123,6 +137,9 @@
 				47571B5E23A63F7100364237 /* LaunchScreen.storyboard */,
 				47571B6123A63F7100364237 /* Info.plist */,
 				471D0B8023A66B4D00066CD1 /* Extension.swift */,
+				41C6B30723A6705300675A8E /* CoreDataManager.swift */,
+				41C6B30923A6716700675A8E /* DataModel.swift */,
+				41C6B30B23A6739E00675A8E /* SwiftBillReader.xcdatamodeld */,
 			);
 			path = SwiftBillReader;
 			sourceTree = "<group>";
@@ -147,6 +164,7 @@
 		47D95B9C23A66807009F943B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41FFE95F23A6940400767CEA /* Lottie.framework */,
 				47D95B9D23A66808009F943B /* CommonUIKit.framework */,
 			);
 			name = Frameworks;
@@ -251,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47571B6023A63F7100364237 /* LaunchScreen.storyboard in Resources */,
+				41FFE96323A6953A00767CEA /* barcodelottie.json in Resources */,
 				47571B5D23A63F7100364237 /* Assets.xcassets in Resources */,
 				47D95B9A23A65B4B009F943B /* Cartfile in Resources */,
 				47571B5B23A63F6F00364237 /* Main.storyboard in Resources */,
@@ -277,8 +296,11 @@
 				47571B5423A63F6F00364237 /* AppDelegate.swift in Sources */,
 				47571B5623A63F6F00364237 /* SceneDelegate.swift in Sources */,
 				47571B7723A63FDD00364237 /* ReceiptContentsViewController.swift in Sources */,
+				41C6B30823A6705300675A8E /* CoreDataManager.swift in Sources */,
 				47571B7923A6404A00364237 /* RecognizedTextDataSource.swift in Sources */,
 				B6222BF723A6851E00E207BD /* ReceiptItem.swift in Sources */,
+				41C6B30A23A6716700675A8E /* DataModel.swift in Sources */,
+				41C6B30D23A6739E00675A8E /* SwiftBillReader.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TWFBHPHN4Q;
+				DEVELOPMENT_TEAM = D5BVPLX9HM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -449,7 +471,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.HP.billReader.SwiftBillReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.billReader.SwiftBillReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -461,7 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TWFBHPHN4Q;
+				DEVELOPMENT_TEAM = D5BVPLX9HM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -471,7 +493,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.HP.billReader.SwiftBillReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.billReader.SwiftBillReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -549,6 +571,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41C6B30B23A6739E00675A8E /* SwiftBillReader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41C6B30C23A6739E00675A8E /* SwiftBillReader.xcdatamodel */,
+			);
+			currentVersion = 41C6B30C23A6739E00675A8E /* SwiftBillReader.xcdatamodel */;
+			path = SwiftBillReader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 47571B4823A63F6F00364237 /* Project object */;
 }

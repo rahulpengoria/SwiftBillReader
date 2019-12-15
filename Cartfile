@@ -1,1 +1,2 @@
 git "https://gitlab.com/coviam-mobile/ios-commonuisdk.git"
+github "airbnb/lottie-ios" "master"
