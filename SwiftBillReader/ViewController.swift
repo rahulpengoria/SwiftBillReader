@@ -9,14 +9,19 @@
 import UIKit
 import VisionKit
 import Vision
+import Lottie
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var animationHolderView: UIView!
+    
     var textRecognitionRequest = VNRecognizeTextRequest()
     var resultsViewController: (UIViewController & RecognizedTextDataSource)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupAnimation()
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
             if let results = request.results, !results.isEmpty {
                 if let requestResults = request.results as? [VNRecognizedTextObservation] {
@@ -104,6 +109,13 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
                 }
             }
         }
+    }
+    
+    func setupAnimation() {
+        let animView = AnimationView(name: "barcodelottie")
+        animView.loopMode = .autoReverse
+        self.animationHolderView.add(subView: animView)
+        animView.play()
     }
 }
 
