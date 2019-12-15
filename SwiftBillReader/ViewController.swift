@@ -12,22 +12,16 @@ import Vision
 
 class ViewController: UIViewController {
     var textRecognitionRequest = VNRecognizeTextRequest()
+    var resultsViewController: (UIViewController & RecognizedTextDataSource)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
             if let results = request.results, !results.isEmpty {
-                var transcript = ""
                 if let requestResults = request.results as? [VNRecognizedTextObservation] {
                     DispatchQueue.main.async {
-                        let maximumCandidates = 1
-                        for observation in requestResults {
-                            guard let candidate = observation.topCandidates(maximumCandidates).first else { continue }
-                            transcript += candidate.string
-                            transcript += "\n"
-                        }
-                        print(transcript)
+                        self.resultsViewController?.addRecognizedText(recognizedText: requestResults)
                     }
                 }
             }
@@ -43,6 +37,27 @@ class ViewController: UIViewController {
         present(documentCameraViewController, animated: true)
     }
     
+    @IBAction func addBillDidTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "", message: "Please Select an Option", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Full screen", style: .default, handler: { (_) in
+            let documentCameraViewController = VNDocumentCameraViewController()
+            documentCameraViewController.delegate = self
+            self.present(documentCameraViewController, animated: true)
+        }))
+
+        alert.addAction(UIAlertAction(title: "MultiPart", style: .default, handler: { (_) in
+            
+        }))
+
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+        
+    }
+    
+    @IBAction func historyButtonDidTapped(_ sender: Any) {
+        
+    }
     func processImage(image: UIImage) {
         guard let cgImage = image.cgImage else {
             print("Failed to get cgimage from input image")
@@ -72,10 +87,7 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
 //            vcID = DocumentScanningViewController.otherContentsIdentifier
 //        }
 //
-//        if let vcID = vcID {
-//            resultsViewController = storyboard?.instantiateViewController(withIdentifier: vcID) as? (UIViewController & RecognizedTextDataSource)
-//        }
-        
+            resultsViewController = ResultviewHelper() as? (UIViewController & RecognizedTextDataSource)
         self.view.lock()
         controller.dismiss(animated: true) {
             DispatchQueue.global(qos: .userInitiated).async {
@@ -84,7 +96,9 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
                     self.processImage(image: image)
                 }
                 DispatchQueue.main.async {
-                    //push view controller
+                    if let resultsVC = self.resultsViewController {
+                        self.navigationController?.pushViewController(resultsVC, animated: true)
+                    }
                     
                     self.view.unlock()
                 }
@@ -93,28 +107,4 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
     }
 }
 
-extension UIView {
-    func lock() {
-        let spinner = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height:40))
-        spinner.tag = 109870
-        spinner.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-        spinner.layer.cornerRadius = 3.0
-        spinner.clipsToBounds = true
-        spinner.hidesWhenStopped = true
-        spinner.style = UIActivityIndicatorView.Style.medium
-        spinner.center = self.center
-        self.addSubview(spinner)
-        spinner.startAnimating()
-        self.isUserInteractionEnabled = false
-    }
-    
-    func unlock() {
-        if let spinner = self.superview?.viewWithTag(109870) as? UIActivityIndicatorView{
-            spinner.stopAnimating()
-            self.isUserInteractionEnabled = true
-            spinner.removeFromSuperview()
-        }
-        
-    }
-}
 

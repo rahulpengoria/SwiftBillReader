@@ -1,0 +1,19 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "2.0.5",
+  "iOS" : [
+    {
+      "name" : "CommonUIKit",
+      "hash" : "a6afbb20691a92c1b28f15d5173c3db8d31f26b1ef59e83a62821221d8beabba",
+      "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
+    }
+  ]
+}

@@ -22,11 +22,44 @@
                                     <action selector="scanReceipt:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vHN-OE-VTM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift Bill Reader" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VN0-Hu-VsJ">
+                                <rect key="frame" x="20" y="141" width="374" height="33.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYg-OH-kbu">
+                                <rect key="frame" x="173" y="243" width="68" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="History">
+                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="historyButtonDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DId-Ve-7hI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8W7-ED-oYW">
+                                <rect key="frame" x="172.5" y="302" width="69" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Add Bill">
+                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addBillDidTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iA5-qj-6Ju"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="X77-gI-eWS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FMx-9U-bdL"/>
                             <constraint firstItem="X77-gI-eWS" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="QZj-mQ-Pzb"/>
+                            <constraint firstItem="VN0-Hu-VsJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Wvi-Jd-QMy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VN0-Hu-VsJ" secondAttribute="trailing" constant="20" id="XSh-eI-7aU"/>
+                            <constraint firstItem="VN0-Hu-VsJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="53" id="f2d-Ut-Dld"/>
+                            <constraint firstItem="bYg-OH-kbu" firstAttribute="top" secondItem="VN0-Hu-VsJ" secondAttribute="bottom" constant="68.5" id="gOQ-JC-CiS"/>
+                            <constraint firstItem="8W7-ED-oYW" firstAttribute="top" secondItem="bYg-OH-kbu" secondAttribute="bottom" constant="20" id="qdY-4Q-Ov1"/>
+                            <constraint firstItem="bYg-OH-kbu" firstAttribute="centerX" secondItem="VN0-Hu-VsJ" secondAttribute="centerX" id="wPu-BF-c4r"/>
+                            <constraint firstItem="8W7-ED-oYW" firstAttribute="centerX" secondItem="bYg-OH-kbu" secondAttribute="centerX" id="yeb-ab-oZb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
