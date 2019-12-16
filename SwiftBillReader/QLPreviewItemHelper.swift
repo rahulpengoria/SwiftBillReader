@@ -63,6 +63,9 @@ class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource
         activityController.excludedActivityTypes = excludeActivities
         activityController.setValue("PFA Bills", forKey: "subject")
         activityController.popoverPresentationController?.sourceView = self.view
+        activityController.completionWithItemsHandler = {(activityType, completed:Bool, returnedItems:[Any]?, error: Error?) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
         self.present(activityController, animated: true, completion: nil)
     }
 }
