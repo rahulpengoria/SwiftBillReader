@@ -124,6 +124,22 @@ class CoreDataManager {
             (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
                 return
         }
+        
+        guard let data: [DataModel] = CoreDataManager.getAllData() else {
+            return
+        }
+        let imageData = data.compactMap { $0.image }
+        
+        for (index,data) in imageData.enumerated() {
+            guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+                continue
+            }
+            do {
+                try data.write(to: directory.appendingPathComponent("\(index).png")!)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Expense")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         do {
@@ -132,6 +148,26 @@ class CoreDataManager {
         } catch let error as NSError {
             print(error)
         }
+    }
+    
+    static func getAllImages() -> [UIImage] {
+        var images = [UIImage]()
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return images
+        }
+        do {
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: directory as URL, includingPropertiesForKeys: nil, options: [])
+            for content in directoryContents {
+                let image = UIImage(data: try Data(contentsOf: content))
+                if let image = image {
+                    images.append(image)
+                }
+            }
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        return images
     }
 }
 
