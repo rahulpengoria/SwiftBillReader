@@ -85,10 +85,15 @@ class CoreDataManager {
             return nil
         }
         
-        var exportString: String = NSLocalizedString("Bill Number, Title, Amount \n", comment: "")
+        var exportString: String = NSLocalizedString("Bill Number, Date, Category, Total, Description\n", comment: "")
         for (index, item) in data.enumerated() {
             //Index is the bill number
-            exportString += "\(index),\(item.date),\(item.category),\(item.total),\(item.desc ?? "") \n"
+            guard let date = item.date, let category = item.category, let total = item.total else {
+                continue
+            }
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MMM-yyyy"
+            exportString += "\(index+1),\(formatter.string(from: date)),\(category),\(total),\(item.desc ?? "") \n"
         }
         
         let exportFilePath = NSTemporaryDirectory() + "itemlist.csv"
