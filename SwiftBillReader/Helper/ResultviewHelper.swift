@@ -23,6 +23,10 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
         return .lightGray
     }
     
+    func customBackButton() -> UIImage? {
+        return UIImage(named: "back")
+    }
+    
     func backgroundColorForTableView() -> UIColor? {
         return .systemGroupedBackground
     }
@@ -33,6 +37,10 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
     
     func shouldShowSeparatorLine() -> Bool {
         return false
+    }
+    
+    func navigationTitle() -> String {
+        return "Bill Info"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +71,8 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
             }
             customView.isUserInteractionEnabled = false
         }
-        cell.setCard(horizontalOffset: 16, verticalOffset: 8)
+        customView.layer.cornerRadius = 8
+        cell.setCard(horizontalOffset: 16, verticalOffset: 4)
         return cell
     }
     
@@ -99,14 +108,65 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
         return formatter.string(from: self.dateArray.first ?? Date())
     }
     
+//    func getTotalAmountFrom(string: String) -> Double {
+//        var finalResult = 0.0
+//        let arrayOfStrings = string.split(separator: "\n")
+//        for str in arrayOfStrings {
+//            let string: String = String(str)
+//            let pattern = "((\\d+[\\. ,]\\d+))"
+//            let expression: NSRegularExpression = try! NSRegularExpression.init(pattern: pattern, options: .caseInsensitive)
+//            if let result = expression.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
+//                print((string as NSString).substring(with: result.range))
+//                let value = (string as NSString).substring(with: result.range)
+//                if value.contains(",") && value.contains(".") {
+//                    let newValue = value.replacingOccurrences(of: ",", with: "")
+//                    if let doubleValue = Double(newValue),
+//                        doubleValue > finalResult {
+//                        finalResult = doubleValue
+//                    }
+//                }
+//                if let doubleValue = Double((string as NSString).substring(with: result.range)),
+//                    doubleValue > finalResult {
+//                    finalResult = doubleValue
+//                }
+//            }
+//        }
+//        return finalResult
+//    }
+    
     func getTotalAmountFrom(string: String) -> Double {
         var finalResult = 0.0
         let arrayOfStrings = string.split(separator: "\n")
         for str in arrayOfStrings {
             let string: String = String(str)
-            let pattern = "((\\d+[\\. ,]\\d+))"
-            let expression: NSRegularExpression = try! NSRegularExpression.init(pattern: pattern, options: .caseInsensitive)
-            if let result = expression.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
+            let pattern1 = "((\\d+[,]\\d+[\\.]\\d+))"
+            let expression1: NSRegularExpression = try! NSRegularExpression.init(pattern: pattern1, options: .caseInsensitive)
+            let pattern2 = "((\\d+[\\. ,]\\d+))"
+            let expression2: NSRegularExpression = try! NSRegularExpression.init(pattern: pattern2, options: .caseInsensitive)
+            if let result = expression1.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
+                print((string as NSString).substring(with: result.range))
+                let value = (string as NSString).substring(with: result.range)
+                if value.contains(",") && value.contains(".") {
+                    let newValue = value.replacingOccurrences(of: ",", with: "")
+                    if let doubleValue = Double(newValue),
+                        doubleValue > finalResult {
+                        finalResult = doubleValue
+                    }
+                }
+                if let doubleValue = Double((string as NSString).substring(with: result.range)),
+                    doubleValue > finalResult {
+                    finalResult = doubleValue
+                }
+            } else if let result = expression2.firstMatch(in: string, options: [], range: NSRange.init(location: 0, length: string.count)) {
+                print((string as NSString).substring(with: result.range))
+                let value = (string as NSString).substring(with: result.range)
+                if value.contains(",") && value.contains(".") {
+                    let newValue = value.replacingOccurrences(of: ",", with: "")
+                    if let doubleValue = Double(newValue),
+                        doubleValue > finalResult {
+                        finalResult = doubleValue
+                    }
+                }
                 if let doubleValue = Double((string as NSString).substring(with: result.range)),
                     doubleValue > finalResult {
                     finalResult = doubleValue
@@ -146,7 +206,6 @@ class ResultviewHelper: UIViewController, CommonDelegateAndDataSource {
     @objc func actionBtnInfo(sender: UIButton) {
         CoreDataManager.save(data: self.createDataModel())
         self.controller?.navigationController?.popViewController(animated: true)
-        print(CoreDataManager.getAllData())
     }
     
     func createDataModel() -> DataModel {

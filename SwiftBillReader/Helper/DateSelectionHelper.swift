@@ -33,7 +33,18 @@ class DateSelectionHelper: NSObject, CommonDelegateAndDataSource {
     }
     
     func shouldShowSeparatorLine() -> Bool {
-        return true
+        return false
+    }
+    
+    func customBackButton() -> UIImage? {
+        return UIImage(named: "back")
+    }
+    
+    func navigationTitle() -> String {
+        if categoryArray != nil {
+            return "Select Category"
+        }
+        return "Select Billing Date"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,6 +69,7 @@ class DateSelectionHelper: NSObject, CommonDelegateAndDataSource {
         }
        
         customView.placeholderText = NSAttributedString(string: "", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#0095da")])
+        customView.layer.cornerRadius = 8
         cell.setCard(horizontalOffset: 16, verticalOffset: 8)
         return cell
     }

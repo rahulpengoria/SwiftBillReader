@@ -22,9 +22,17 @@ class ViewController: UIViewController {
     
     var textRecognitionRequest = VNRecognizeTextRequest()
     var resultsViewController: (UIViewController & RecognizedTextDataSource)?
-    let helper = ResultviewHelper()
+    var helper = ResultviewHelper()
+    var animView = AnimationView(name: "barcodelottie")
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupAnimation()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        helper = ResultviewHelper()
         textRecognitionRequest = VNRecognizeTextRequest(completionHandler: { (request, error) in
             if let results = request.results, !results.isEmpty {
                 if let requestResults = request.results as? [VNRecognizedTextObservation] {
@@ -37,13 +45,8 @@ class ViewController: UIViewController {
         })
         // This doesn't require OCR on a live camera feed, select accurate for more accurate results.
         textRecognitionRequest.recognitionLevel = .accurate
-        textRecognitionRequest.usesLanguageCorrection = true
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setupAnimation()
+        textRecognitionRequest.usesLanguageCorrection = false
+        animView.play()
         if let count = CoreDataManager.getAllData()?.count, count > 0 {
             billButton.setTitle("Add Bill", for: .normal)
             submitJourneyButton.isHidden = false
@@ -136,7 +139,7 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
     }
     
     func setupAnimation() {
-        let animView = AnimationView(name: "barcodelottie")
+        animView = AnimationView(name: "barcodelottie")
         animView.loopMode = .autoReverse
         self.animationHolderView.add(subView: animView)
         animView.play()

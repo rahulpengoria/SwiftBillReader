@@ -31,12 +31,24 @@ class HistoryHelper: NSObject, CommonDelegateAndDataSource {
         }
     }
     
+    func navigationBarColor() -> UIColor? {
+        return .lightGray
+    }
+    
     func customBackButton() -> UIImage? {
         return UIImage(named: "back")
     }
     
+    func reusableIdentifiers() -> [String]? {
+        return ["CommonUIKit.CustomTextField"]
+    }
+    
     func reusableIdentifiersForSimpleTableViewCell() -> [String]? {
         return ["Cell"]
+    }
+    
+    func navigationTitle() -> String {
+        return "Billing History"
     }
     
     func shouldShowSeparatorLine() -> Bool {
@@ -59,23 +71,18 @@ class HistoryHelper: NSObject, CommonDelegateAndDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-        cell.backgroundColor = UIColor.systemGroupedBackground
-        cell.selectionStyle = .none
-        cell.detailTextLabel?.numberOfLines = 0
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
-        cell.textLabel?.textColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        cell.imageView?.translatesAutoresizingMaskIntoConstraints = false
-        cell.imageView?.heightAnchor.constraint(equalToConstant: 0.0).isActive = true
-        cell.imageView?.contentMode = .scaleAspectFit
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14)
-        cell.detailTextLabel?.textColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
-
-        cell.textLabel?.text = list[indexPath.row].fileDisplayName
-        
-        cell.detailTextLabel?.text = self.getDateString(date: list[indexPath.row].submitDate ?? Date())
-
-        return cell ?? UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommonUIKit.CustomTextField", for: indexPath) as? BaseTableViewCell, let customView = cell.customView as? CustomTextField else {
+             return UITableViewCell()
+         }
+         customView.backgroundColor = .white
+         customView.isUserInteractionEnabled = false
+        if let name = list[indexPath.row].fileDisplayName {
+            customView.textFieldText = NSAttributedString(string: name, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        }
+         customView.placeholderText = NSAttributedString(string: self.getDateString(date: list[indexPath.row].submitDate ?? Date()), attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#0095da")])
+         customView.layer.cornerRadius = 8
+         cell.setCard(horizontalOffset: 16, verticalOffset: 8)
+         return cell
     }
     
     func getDateString(date: Date) -> String {
