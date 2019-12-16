@@ -12,6 +12,7 @@ import QuickLook
 class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource {
     
     var priviewItem: URL?
+    var imagesArray = [UIImage]()
     
     func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
         return 1
@@ -21,7 +22,7 @@ class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource
         self.priviewItem as! QLPreviewItem
     }
     
-    func openDocument(vc: UIViewController, url: URL?) {
+    func openDocument(vc: UIViewController, url: URL?, images: [UIImage]) {
         
         guard let document = url else {
             print("Cannot open document because it's nil")
@@ -36,6 +37,7 @@ class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource
         if QLPreviewController.canPreview(document as QLPreviewItem) {
             self.currentPreviewItemIndex = 0
             self.priviewItem = document
+            self.imagesArray = images
             self.dataSource = self
             self.reloadData()
 
@@ -48,7 +50,8 @@ class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource
     }
     
     @objc private func share(){
-        let activityItems = [priviewItem, UIImage(named: "back")] as [Any]
+        var activityItems = [priviewItem] as [Any]
+        activityItems.append(contentsOf: imagesArray)
         let applicationActivities: [UIActivity]? = nil
         let excludeActivities = [UIActivity.ActivityType.assignToContact,
                                  UIActivity.ActivityType.copyToPasteboard,

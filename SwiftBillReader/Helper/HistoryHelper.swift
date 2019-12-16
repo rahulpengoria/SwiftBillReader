@@ -13,11 +13,13 @@ import QuickLook
 class HistoryHelper: NSObject, CommonDelegateAndDataSource {
     var controller: CommonTableViewController?
     var list = [HistoryCSVModel]()
+    var imagesArray = [UIImage]()
     
     func handleEvent(withControllerLifeCycle event: ViewControllerLifeCycleEvents, viewController: CommonTableViewController, otherInfo: [String : Any]?) {
         if event == .didLoad {
             if let values = CoreDataManager.getAllCSVHistory(), values.count > 0 {
                 list = values
+                self.imagesArray = CoreDataManager.getAllImages()
             } else {
                 let alertController = UIAlertController(title: "No Bills Found", message: "", preferredStyle: .alert)
                
@@ -62,7 +64,7 @@ class HistoryHelper: NSObject, CommonDelegateAndDataSource {
     func showcsvFile(filePath: URL?) {
         if let url = filePath {
             let docpreview = MYQLPreviewController()
-            docpreview.openDocument(vc: self.controller!, url: url)
+            docpreview.openDocument(vc: self.controller!, url: url, images: self.imagesArray)
         }
     }
     
