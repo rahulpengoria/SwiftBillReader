@@ -17,27 +17,4 @@ extension UIView {
             self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view":subView]))
         }
     }
-    
-    func lock() {
-        let spinner = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height:40))
-        spinner.tag = 109870
-        spinner.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-        spinner.layer.cornerRadius = 3.0
-        spinner.clipsToBounds = true
-        spinner.hidesWhenStopped = true
-        spinner.style = UIActivityIndicatorView.Style.medium
-        spinner.center = self.center
-        self.addSubview(spinner)
-        spinner.startAnimating()
-        self.isUserInteractionEnabled = false
-    }
-    
-    func unlock() {
-        if let spinner = self.superview?.viewWithTag(109870) as? UIActivityIndicatorView{
-            spinner.stopAnimating()
-            self.isUserInteractionEnabled = true
-            spinner.removeFromSuperview()
-        }
-        
-    }
 }

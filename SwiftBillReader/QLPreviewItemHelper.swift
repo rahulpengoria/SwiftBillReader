@@ -12,7 +12,6 @@ import QuickLook
 class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource {
     
     var priviewItem: URL?
-     //var fileURL: URL?
     
     func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
         return 1
@@ -24,7 +23,6 @@ class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource
     
     func openDocument(vc: UIViewController, url: URL?) {
         
-
         guard let document = url else {
             print("Cannot open document because it's nil")
             return
@@ -34,9 +32,7 @@ class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource
         } else {
             vc.show(self, sender: nil)
         }
-//        print(self.priviewItem)
-//        self.dataSource = self
-//        self.reloadData()
+
         if QLPreviewController.canPreview(document as QLPreviewItem) {
             self.currentPreviewItemIndex = 0
             self.priviewItem = document
@@ -44,42 +40,7 @@ class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource
             self.reloadData()
 
         }
-        
-
-//        API.sharedInstance.fetchDocument(document) { (saved) in
-//            DispatchQueue.main.async(execute: {
-//                guard let url = saved else {
-//                    print("File url is not valid")
-//                    return
-//                }
-//                if QLPreviewController.canPreview(url as QLPreviewItem) {
-//                    self.currentPreviewItemIndex = 0
-//                    self.fileURL = url
-//                    self.dataSource = self
-//                    self.delegate = self
-//                    self.reloadData()
-//
-//                } else {
-//                    makeDefaultAlert(self, title: "Not supported", msg: "File is not supported for preview")
-//                    print("Item not supported by QLPreviewController")
-//                }
-//            })
-//        }
     }
-    
-//    func show(controller: UIViewController, data: QLPreviewItemHelper) {
-//        self.priviewItem = data.priviewItem
-//        self.dataSource = data
-//        // Refreshing the view
-//        self.reloadData()
-//        // Printing the doc
-//        if let navController = controller.navigationController {
-//            navController.pushViewController(self, animated: true)
-//        }
-//        else {
-//            controller.show(self, sender: nil)
-//        }
-//    }
     
      override func viewDidLayoutSubviews() {
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share))
@@ -87,7 +48,7 @@ class MYQLPreviewController : QLPreviewController, QLPreviewControllerDataSource
     }
     
     @objc private func share(){
-        let activityItems = [UIImage(named: "back"), UIImage(named: "back")] as [Any]
+        let activityItems = [priviewItem, UIImage(named: "back")] as [Any]
         let applicationActivities: [UIActivity]? = nil
         let excludeActivities = [UIActivity.ActivityType.assignToContact,
                                  UIActivity.ActivityType.copyToPasteboard,

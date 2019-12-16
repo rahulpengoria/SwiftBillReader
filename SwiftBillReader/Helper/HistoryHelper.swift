@@ -51,14 +51,6 @@ class HistoryHelper: NSObject, CommonDelegateAndDataSource {
         if let url = filePath {
             let docpreview = MYQLPreviewController()
             docpreview.openDocument(vc: self.controller!, url: url)
-            
-//            let helper = QLPreviewItemHelper()
-//            helper.priviewItem = url as NSURL
-//            MYQLPreviewController().show(controller: self.controller!, data: helper)
-            
-//            let controller = QLPreviewController()
-//            controller.dataSource = helper
-//            self.controller?.navigationController?.present(controller, animated: true, completion: nil)
         }
     }
     
