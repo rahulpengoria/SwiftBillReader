@@ -12,6 +12,7 @@ import Vision
 import CommonUIKit
 import Lottie
 
+
 class ViewController: UIViewController {
     
     
@@ -89,12 +90,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func historyButtonDidTapped(_ sender: Any) {
+        
         let helper = HistoryHelper()
         let controller = CommonTableViewController.instantiate(dataSource: helper, delegate: helper)
         helper.controller = controller
         self.navigationController?.pushViewController(controller, animated: true)
         
     }
+    
     func processImage(image: UIImage) {
         guard let cgImage = image.cgImage else {
             print("Failed to get cgimage from input image")

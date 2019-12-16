@@ -17,6 +17,8 @@
 		471D0B7E23A669C500066CD1 /* ResultviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */; };
 		471D0B8123A66B4D00066CD1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0B8023A66B4D00066CD1 /* Extension.swift */; };
 		471D0BA123A6B28500066CD1 /* HistoryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0BA023A6B28500066CD1 /* HistoryHelper.swift */; };
+		471D0BA323A7464500066CD1 /* Example.csv in Resources */ = {isa = PBXBuildFile; fileRef = 471D0BA223A7464500066CD1 /* Example.csv */; };
+		471D0BA523A748DA00066CD1 /* QLPreviewItemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471D0BA423A748DA00066CD1 /* QLPreviewItemHelper.swift */; };
 		47571B5423A63F6F00364237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5323A63F6F00364237 /* AppDelegate.swift */; };
 		47571B5623A63F6F00364237 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5523A63F6F00364237 /* SceneDelegate.swift */; };
 		47571B5823A63F6F00364237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47571B5723A63F6F00364237 /* ViewController.swift */; };
@@ -68,6 +70,9 @@
 		471D0B7D23A669C500066CD1 /* ResultviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultviewHelper.swift; sourceTree = "<group>"; };
 		471D0B8023A66B4D00066CD1 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		471D0BA023A6B28500066CD1 /* HistoryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHelper.swift; sourceTree = "<group>"; };
+		471D0BA223A7464500066CD1 /* Example.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Example.csv; sourceTree = "<group>"; };
+		471D0BA423A748DA00066CD1 /* QLPreviewItemHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLPreviewItemHelper.swift; sourceTree = "<group>"; };
+		471D0BA723A74A1100066CD1 /* pexamples.ppt */ = {isa = PBXFileReference; lastKnownFileType = file; path = pexamples.ppt; sourceTree = "<group>"; };
 		47571B5023A63F6F00364237 /* SwiftBillReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBillReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47571B5323A63F6F00364237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47571B5523A63F6F00364237 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +145,8 @@
 		47571B5223A63F6F00364237 /* SwiftBillReader */ = {
 			isa = PBXGroup;
 			children = (
+				471D0BA723A74A1100066CD1 /* pexamples.ppt */,
+				471D0BA223A7464500066CD1 /* Example.csv */,
 				B6222BF523A6850100E207BD /* Model */,
 				41FFE96223A6953A00767CEA /* barcodelottie.json */,
 				47D95BA123A66916009F943B /* Helper */,
@@ -155,6 +162,7 @@
 				47571B6123A63F7100364237 /* Info.plist */,
 				471D0B8023A66B4D00066CD1 /* Extension.swift */,
 				4188878723A6A94200D4E65E /* CoreData */,
+				471D0BA423A748DA00066CD1 /* QLPreviewItemHelper.swift */,
 			);
 			path = SwiftBillReader;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 				41FFE96323A6953A00767CEA /* barcodelottie.json in Resources */,
 				47571B5D23A63F7100364237 /* Assets.xcassets in Resources */,
 				47D95B9A23A65B4B009F943B /* Cartfile in Resources */,
+				471D0BA323A7464500066CD1 /* Example.csv in Resources */,
 				47571B5B23A63F6F00364237 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +330,7 @@
 				41C6B30A23A6716700675A8E /* DataModel.swift in Sources */,
 				41C6B30D23A6739E00675A8E /* SwiftBillReader.xcdatamodeld in Sources */,
 				4188878523A6A8D200D4E65E /* HistoryCSVModel.swift in Sources */,
+				471D0BA523A748DA00066CD1 /* QLPreviewItemHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D5BVPLX9HM;
+				DEVELOPMENT_TEAM = TWFBHPHN4Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -491,7 +501,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blRer.SwiftBillReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bler.SwiftBillReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -503,7 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D5BVPLX9HM;
+				DEVELOPMENT_TEAM = TWFBHPHN4Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -513,7 +523,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blRer.SwiftBillReader;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bler.SwiftBillReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

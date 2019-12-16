@@ -8,6 +8,7 @@
 
 import UIKit
 import CommonUIKit
+import QuickLook
 
 class HistoryHelper: NSObject, CommonDelegateAndDataSource {
     var controller: CommonTableViewController?
@@ -40,6 +41,25 @@ class HistoryHelper: NSObject, CommonDelegateAndDataSource {
     
     func shouldShowSeparatorLine() -> Bool {
         return false
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showcsvFile(filePath: list[indexPath.row].filePath ?? nil)
+    }
+    
+    func showcsvFile(filePath: URL?) {
+        if let url = filePath {
+            let docpreview = MYQLPreviewController()
+            docpreview.openDocument(vc: self.controller!, url: url)
+            
+//            let helper = QLPreviewItemHelper()
+//            helper.priviewItem = url as NSURL
+//            MYQLPreviewController().show(controller: self.controller!, data: helper)
+            
+//            let controller = QLPreviewController()
+//            controller.dataSource = helper
+//            self.controller?.navigationController?.present(controller, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
